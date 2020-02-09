@@ -6,12 +6,8 @@ class Dragon {
     this.hungry = true;
     var meals = 0;
     this.eat = function(){
-      if (meals > 1){
-        this.hungry = false;
-      } else {
-        meals++
-        this.hungry = true;
-      }
+      meals++
+      this.hungry = !Boolean(meals>2);
     }
   }
 }
