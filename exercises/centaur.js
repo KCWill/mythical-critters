@@ -9,14 +9,14 @@ class Centaur {
     var runNum = 0;
     this.shoot = function(){
       shootNum = shootNum + !(this.layingDown || this.cranky)*1;
-      this.cranky = !Boolean((shootNum + runNum)%3);
+      this.cranky = Boolean((shootNum + runNum)>1);
       var message = ['NO!', 'Twang!!!'];
       var shooting = !(this.layingDown || this.cranky)*1
       return message[shooting];
     }
     this.run = function(){
       runNum = runNum + !(this.layingDown || this.cranky)*1
-      this.cranky = !Boolean((shootNum + runNum)%3);
+      this.cranky = Boolean((shootNum + runNum)>1);
       var running = !(this.layingDown || this.cranky)*1;
       var message = ['NO!', 'Clop clop clop clop!!!']
       return message[running]
@@ -41,10 +41,7 @@ class Centaur {
       this.cranky = Boolean(standing-1) || !this.cranky;
       return potMessage[standing]
     }
-
   }
 }
-
-// var centaur1 = new Centaur('Brad', "White!")
 
 module.exports = Centaur;

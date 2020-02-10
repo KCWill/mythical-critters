@@ -1,11 +1,8 @@
 class Vampire {
   constructor(name, pet){
     this.name = name;
-    if (pet == null){
-    this.pet = 'bat';
-  } else {
-    this.pet = pet;
-  }
+    var pets = ['bat', pet];
+    this.pet = pets[!!pet*1];
     this.thirsty = true;
     this.drink = function (){
       this.thirsty = false;
