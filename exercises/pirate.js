@@ -1,19 +1,13 @@
 class Pirate {
   constructor(name,job){
     this.name = name;
-
-    if (job == null){
-    this.job = 'Scallywag';
-    } else {
-    this.job = job;
-    }
+    var jobMess = ['Scallywag', job];
+    this.job = jobMess[!!(job)*1];
     this.cursed = false;
     var count = 0;
     this.commitHeinousAct = function() {
       count++
-      if (count > 2){
-        this.cursed = true;
-      }
+      this.cursed = !!(count>2);
     }
     this.booty = 0;
     this.robShip = function() {
