@@ -3,7 +3,7 @@ class Wizard {
     this.name = details.name;
     var beardedDefault = [true, false];
     var beardedEntry = details.bearded;
-    this.bearded = beardedDefault[!!(details.bearded === false)*1];
+    this.bearded = beardedDefault[(details.bearded === false)*1];
     this.isRested = true;
     this.incantation = function(incantation){
       var incantUpper = incantation.toUpperCase();
@@ -14,7 +14,7 @@ class Wizard {
       var castMessage = ['MAGIC BULLET', 'I SHALL NOT CAST!'];
       this.isRested = !!!(castNum>1)
       castNum++;
-      return castMessage[!!!(this.isRested)*1];
+      return castMessage[!(this.isRested)*1];
     }
   }
 }
