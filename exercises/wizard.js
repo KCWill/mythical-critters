@@ -1,21 +1,22 @@
 class Wizard {
   constructor(details){
     this.name = details.name;
-    var beardedDefault = [true, false];
-    var beardedEntry = details.bearded;
-    this.bearded = beardedDefault[(details.bearded === false)*1];
+    this.bearded = (details.bearded === undefined ||details.bearded )
     this.isRested = true;
-    this.incantation = function(incantation){
+    this.castNum = 0;
+    }
+
+    incantation(incantation) {
       var incantUpper = incantation.toUpperCase();
       return incantUpper;
     }
-    var castNum = 0;
-    this.cast = function() {
+    
+    cast() {
       var castMessage = ['MAGIC BULLET', 'I SHALL NOT CAST!'];
-      this.isRested = !!!(castNum>1)
-      castNum++;
+      this.isRested = !(this.castNum>1)
+      this.castNum++;
       return castMessage[!(this.isRested)*1];
-    }
+
   }
 }
 

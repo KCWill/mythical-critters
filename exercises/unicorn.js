@@ -3,13 +3,14 @@ class Unicorn {
     this.name = name;
     var colorChoice = ['white', color];
     this.color = colorChoice[!!(color)*1];
-    this.isWhite = function() {
-    return !!!color
+  }
+    isWhite(color) {
+    return !this.color
     }
-    this.says = function(message) {
+    says(message) {
     return (`**;* ${message} *;**`)
     }
-  }
 }
+
 
 module.exports = Unicorn;

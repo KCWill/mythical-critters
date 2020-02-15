@@ -3,12 +3,13 @@ class Medusa {
     this.name = name;
     this.statues = [];
     this.pastVictims = [];
-    var vicNum = 0;
-    this.stare = function(victim) {
+    this.vicNum = 0;
+  }
+  stare(victim) {
       this.statues.push(victim);
-      this.statues[vicNum].stoned = true;
-      var vicBool = (vicNum > 2);
-      vicNum++
+      this.statues[this.vicNum].stoned = true;
+      var vicBool = (this.vicNum > 2);
+      this.vicNum++
       var num1 = [0,1];
       var num2 = [1,4];
       var retainArray1 = [0,1];
@@ -17,5 +18,5 @@ class Medusa {
       this.pastVictims.stoned = !(this.statues.length > 2)
       }
   }
-}
+
 module.exports = Medusa;

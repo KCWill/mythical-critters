@@ -1,47 +1,50 @@
 class Centaur {
-  constructor(name, breed){
+  constructor(name,breed){
     this.name = name;
     this.breed = breed;
+    this.standing = true;
+    this.active = 0;
     this.cranky = false;
+    this.layingDown = false;
+  }
+
+  shoot(){
+    var shootMessage = ['Twang!!!','NO!'];
+    this.active++;
+    this.cranky = this.active > 2;
+    return shootMessage[this.cranky*1 || this.layingDown*1];
+  }
+
+  run(){
+    var runMessage = ['Clop clop clop clop!!!','NO!'];
+    this.active++;
+    this.cranky = this.active > 2;
+    return runMessage[this.layingDown*1];
+  }
+
+  sleep(){
+    var sleepMessage = ['NO!','ZZZZ'];
+    this.cranky = !this.layingDown;
+    this.active = !this.layingDown*1;
+    return sleepMessage[!this.standing*1 || this.layingDown*1];
+  }
+
+  layDown(){
+    this.standing = false;
+    this.layingDown = true;
+  }
+
+  standUp(){
     this.standing = true;
     this.layingDown = false;
-    var shootNum = 0;
-    var runNum = 0;
-    this.shoot = function(){
-      shootNum = shootNum + !(this.layingDown || this.cranky)*1;
-      this.cranky = Boolean((shootNum + runNum)>1);
-      var message = ['NO!', 'Twang!!!'];
-      var shooting = !(this.layingDown || this.cranky)*1
-      return message[shooting];
-    }
-    this.run = function(){
-      runNum = runNum + !(this.layingDown || this.cranky)*1
-      this.cranky = Boolean((shootNum + runNum)>1);
-      var running = !(this.layingDown || this.cranky)*1;
-      var message = ['NO!', 'Clop clop clop clop!!!']
-      return message[running]
-    }
-    this.sleep = function() {
-      var sleeping = (!this.standing || this.layingDown)*1
-      var sleepMessage = ['NO!','ZZZZ'];
-      this.cranky = !Boolean((!this.standing || this.layingDown)*1)
-      return sleepMessage[sleeping];
-    }
-    this.layDown = function() {
-      this.layingDown = !this.layingDown;
-      this.standing = !this.standing;
-    }
-    this.standUp = function() {
-      this.layingDown = !this.layingDown;
-      this.standing = !this.standing;
-    }
-    this.drinkPotion = function () {
-      var standing = Boolean(this.standing)*1
-      var potMessage = ["Not while I'm laying down!"]
-      this.cranky = Boolean(standing-1) || !this.cranky;
-      return potMessage[standing]
-    }
+  }
+
+  drinkPotion(){
+    var potionMessage = ["Not while I'm laying down!","Great, now I'm cranky!"]
+    this.cranky = !this.standing || !this.cranky;
+    return potionMessage[this.cranky*1 && this.standing*1];
   }
 }
+
 
 module.exports = Centaur;

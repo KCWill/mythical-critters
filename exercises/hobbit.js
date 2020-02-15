@@ -7,13 +7,13 @@ class Hobbit {
     this.isShort = true;
     this.old = false;
     this.hasRing = !!(name === 'Frodo');
-    var age = 0;
-    this.celebrateBirthday = function() {
-      age++
-      this.age = age;
-      this.adult = (age>32);
-      this.old = (age>100);
+
+  }
+  celebrateBirthday() {
+    this.age++
+    this.adult = (this.age>32);
+    this.old = (this.age>100);
     }
   }
-}
+
 module.exports = Hobbit;
