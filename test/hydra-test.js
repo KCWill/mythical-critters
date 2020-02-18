@@ -3,45 +3,45 @@ var Hydra = require('../exercises/hydra');
 
 describe('Hydra', function() {
 
-  it('should be a function', function() {
+  it.skip('should be a function', function() {
     assert.isFunction(Hydra);
   });
 
-  it('should have a name', function() {
+  it.skip('should have a name', function() {
     var hydra1 = new Hydra('The Vixen');
     assert.equal(hydra1.name, 'The Vixen');
     var hydra2 = new Hydra('Laganja Estranja');
     assert.equal(hydra2.name, 'Laganja Estranja');
   });
 
-  it('should have a color', function() {
+  it.skip('should have a color', function() {
     var hydra = new Hydra('Shangela', 'Green');
     assert.equal(hydra.color, 'Green');
   });
 
-  it('should be purple if color is not entered', function() {
+  it.skip('should be purple if color is not entered', function() {
     var hydra = new Hydra('Raja');
     assert.equal(hydra.color, 'Purple');
   });
 
-  it('should have one head on first encounter', function() {
+  it.skip('should have one head on first encounter', function() {
     var hydra = new Hydra('Trixie Mattel');
     assert.equal(hydra.headCount, 1);
   });
 
-  it('should grow two additional heads when decapitated', function() {
+  it.skip('should grow two additional heads when decapitated', function() {
     var hydra = new Hydra('Katya Zalomodchikova');
     hydra.chop();
     assert.equal(hydra.headCount, 3);
   });
 
-  it('should initially run normally', function() {
+  it.skip('should initially run normally', function() {
     var hydra = new Hydra('Gia Gunn','Blue');
     assert.equal(hydra.runningSlow, false);
   });
 
-  it('should run slowly if hydra has more than 29 heads', function() {
-    var hydra = new Hydra('Bob');
+  it.skip('should run slowly if hydra has more than 29 heads', function() {
+    var hydra = new Hydra('Bob the Drag Queen');
     assert.equal(hydra.runningSlow, false);
     for (var i = 0; i < 15; i++){
       hydra.chop();
@@ -49,12 +49,12 @@ describe('Hydra', function() {
     assert.equal(hydra.runningSlow, true);
   });
 
-  it('should have a location of open field', function(){
+  it.skip('should have a default location of open field', function(){
     var hydra = new Hydra('Aquaria');
     assert.equal(hydra.location, 'open field' )
   });
 
-  it('should travel to mountainside from open field, to beach from mountainside, to open field from beach', function() {
+  it.skip('should travel to mountainside from open field, to beach from mountainside, to open field from beach', function() {
     var hydra = new Hydra('Kalorie Karbdashian-Williams');
     assert.equal(hydra.location, 'open field');
     hydra.travel();
@@ -65,7 +65,7 @@ describe('Hydra', function() {
     assert.equal(hydra.location, 'open field');
   });
 
-  it('can be killed if running slowly and is near a mountainside', function() {
+  it.skip('can be killed if running slowly and is near a mountainside', function() {
     var hydra = new Hydra('Bianca Del Rio');
     assert.equal(hydra.isAlive, true);
     hydra.travel();
@@ -79,7 +79,7 @@ describe('Hydra', function() {
     assert.equal(hydra.isAlive, false);
   });
 
-  it('cannot be killed if not running slowly and not at a mountainside', function() {
+  it.skip('cannot be killed if not running slowly and not at a mountainside', function() {
     var hydra = new Hydra('Jasmine Masters');
     assert.equal(hydra.isAlive, true);
     hydra.travel();
@@ -102,7 +102,7 @@ describe('Hydra', function() {
     assert.equal(hydra.isAlive, false);
   });
 
-  it('should not be able to chop or travel after death', function(){
+  it.skip('should not be able to chop or travel after death', function(){
     var hydra = new Hydra('Bianca Del Rio');
     for (var i = 0; i < 15; i++){
       hydra.chop();
